@@ -26,6 +26,12 @@ class ActivitiesController < ApplicationController
   end
 
   def update
+    @activity.update(activity_params)
+    if @activity.save
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
