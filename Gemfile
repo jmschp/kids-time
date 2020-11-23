@@ -28,9 +28,13 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# Frontend gems from Lewagon template
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+
+# Devise An authentication gem for Rails
+gem 'devise'
 
 group :development, :test do
   gem 'pry-byebug'
