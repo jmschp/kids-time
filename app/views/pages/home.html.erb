@@ -1,2 +1,20 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+  <!-- code a container section -->
+  <div class="banner" style="background-image: url(<%= image_url('ukulele.jpg')%>);">
+    <div class="container">
+      <h1>Você criativo na educação do seus filhos</h1>
+      <p>Encontre ideias diferentes e serviços recomendados por outros pais e viva momentos especiais com seus filhos !</p>
+      <div>
+        <%= link_to "em casa", root_path, class: 'btn' %>
+        <li>ar livre</li>
+        <li>online</li>
+        <li>na cozinha</li>
+        <li>livros</li>
+        <li>aniversário</li>
+        <li>com amigos</li>
+      </div>
+      <a class="btn-primary" href="#">Descubra atividades agora</a>
+    </div>
+  </div>
