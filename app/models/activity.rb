@@ -1,5 +1,5 @@
-ACTIVITY_CATEGORIES = ["Aniversário", "Ar livre", "Casa", "Com Amigos", "Cozinha", "Livros", "Online", "Outros"]
 class Activity < ApplicationRecord
+  ACTIVITY_CATEGORIES = ["Aniversário", "Ar livre", "Casa", "Com Amigos", "Cozinha", "Livros", "Online", "Outros"]
   belongs_to :user
   has_many :orders
   has_many_attached :photos
@@ -9,6 +9,6 @@ class Activity < ApplicationRecord
   validates :duration, presence: true, length: { maximum: 50 }
   validates :duration, presence: true, length: { maximum: 50 }
   validates :min_age, presence: true, length: { maximum: 2 }
-  validates :max_age, presence: true, length: { maximum: 2 }
-  validates :price, length: { maximum: 4 }
+  validates :max_age, length: { maximum: 2 }
+  validates :price, length: { maximum: 10 }
 end
