@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KidsTime</title>
+    <title>KidsTime - Ideias criativas para momentos especiais recomendadas por outros pais</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,18 +13,18 @@
 
   <body>
     <!-- code a navbar -->
-    <div class="navbar">
-      <a class="btn-primary" href="#">Login / Sign up</a>
+    <div class="navbar-lewagon d-flex align-items-end flex-column">
+      <%= link_to "Login / Sign up", root_path, class: 'btn-tag8' %>
     </div>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <!-- code a footer -->
-    <div class="footer">
-      <div class="links">
+    <div class="footer d-flex align-self-center align-items-center">
+      <div class="links ">
         <a href="#"><i class="fab fa-fw fa-instagram"></i></a>
-        <p>KidsTime juntos com <i class="fas fa-heart"></i></p>
+        <p>KidsTime <i class="fas fa-heart"></i></p>
       </div>
     </div>
   </body>
