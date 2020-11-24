@@ -1,9 +1,12 @@
 .footer {
   justify-content: center;
   background: white;
+  font-family: $body-font;
+  margin-top:20px;
   .links {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: $blue;
   }
 }

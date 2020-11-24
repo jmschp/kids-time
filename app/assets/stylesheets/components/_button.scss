@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5AC2C9;
+  background-color: $blue;
   padding: 16px 36px;
   border-radius: 10px;
   color: white;
@@ -11,15 +11,17 @@
   text-align: center;
   text-decoration: none;
   margin-top: 10px;
+  font-family: $body-font;
 }
 
 .btn-calltoaction:hover {
-  background-color: #EA5556;
+  background-color: $red;
   text-decoration: none;
   color: white;
   font-size: 18 px;
   font-weight: medium;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag1 {
@@ -27,16 +29,18 @@
   border-radius: 50px;
   color: white;
   font-weight: medium;
-  background-color: #5AC2C9;
+  background-color: $blue;
   text-decoration: none;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag1:hover {
-  background-color: #5AC2C9;
+  background-color: $blue;
   text-decoration: none;
   text-align: center;
   color: white;
+  font-family: $body-font;
 }
 
 .btn-tag2 {
@@ -44,16 +48,18 @@
   border-radius: 50px;
   color: white;
   font-weight: medium;
-  background-color: #EA5556;
+  background-color: $red;
   text-decoration: none;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag2:hover {
-  background-color: #EA5556;
+  background-color: $red;
   text-decoration: none;
   text-align: center;
   color: white;
+  font-family: $body-font;
 }
 
 .btn-tag3 {
@@ -61,16 +67,18 @@
   border-radius: 50px;
   color: white;
   font-weight: medium;
-  background-color: #FAD148;
+  background-color: $yellow;
   text-decoration: none;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag3:hover {
-  background-color: #FAD148;
+  background-color: $yellow;
   text-decoration: none;
   text-align: center;
   color: white;
+  font-family: $body-font;
 }
 
 .btn-tag4 {
@@ -78,16 +86,18 @@
   border-radius: 50px;
   color: white;
   font-weight: medium;
-  background-color: #74CF44;
+  background-color: $green;
   text-decoration: none;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag4:hover {
-  background-color: #74CF44;
+  background-color: $green;
   text-decoration: none;
   text-align: center;
   color: white;
+  font-family: $body-font;
 }
 
 .btn-tag5 {
@@ -95,16 +105,18 @@
   border-radius: 50px;
   color: white;
   font-weight: medium;
-  background-color: #F19A71;
+  background-color: $orange;
   text-decoration: none;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag5:hover {
-  background-color: #F19A71;
+  background-color: $orange;
   text-decoration: none;
   text-align: center;
   color: white;
+  font-family: $body-font;
 }
 
 .btn-tag6 {
@@ -112,16 +124,18 @@
   border-radius: 50px;
   color: white;
   font-weight: medium;
-  background-color: #E8467F;
+  background-color: $pink;
   text-decoration: none;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag6:hover {
-  background-color: #E8467F;
+  background-color: $pink;
   text-decoration: none;
   text-align: center;
   color: white;
+  font-family: $body-font;
 }
 
 .btn-tag7 {
@@ -129,34 +143,38 @@
   border-radius: 50px;
   color: white;
   font-weight: medium;
-  background-color: #7A75FC;
+  background-color: $purple;
   text-decoration: none;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag7:hover {
-  background-color: #7A75FC;
+  background-color: $purple;
   text-decoration: none;
   text-align: center;
   color: white;
+  font-family: $body-font;
 }
 
 .btn-tag8 {
   text-decoration: none;
   text-align: center;
-  color: #5AC2C9;
+  color: $blue;
   font-weight: medium;
   font-size: 25;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag8:hover {
   text-decoration: none;
   text-align: center;
-  color: #5AC2C9;
+  color: $blue;
   font-weight: medium;
   font-size: 25;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag9 {
@@ -164,10 +182,11 @@
   border-radius: 50px;
   text-decoration: none;
   text-align: center;
-  color: #5AC2C9;
+  color: $blue;
   font-weight: medium;
   font-size: 25;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btn-tag9:hover {
@@ -175,16 +194,34 @@
   border-radius: 50px;
   text-decoration: none;
   text-align: center;
-  color: #5AC2C9;
+  color: $blue;
   font-weight: medium;
   font-size: 25;
   text-align: center;
+  font-family: $body-font;
 }
 
 .btns-category {
   display: flex;
   flex-wrap: wrap;
   & > *{
-    margin: 3px 2px;
+    margin: 5px 4px;
   }
+}
+
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
 }
