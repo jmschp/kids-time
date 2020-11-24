@@ -35,19 +35,23 @@
 <h1 class='mb-5'>Activities</h1>
 <h3 class='mb-5'>Category</h3>
 
-<div class='container d-flex justify-content-between'>
-<a class="btn btn-flat" href="#">SPORTS</a>
-<a class="btn btn-flat" href="#">OUTDOOR</a>
-<a class="btn btn-flat" href="#">INDOOR</a>
-<a class="btn btn-flat" href="#">FAMILY</a>
-<a class="btn btn-flat" href="#">FRIENDS</a>
-<a class="btn btn-flat" href="#">TABLE GAMES</a>
-</div>
+ <div class="btns-category">
+      <%= link_to "em casa", root_path, class: 'btn-tag1 display:inline-block hvr-grow' %>
+      <%= link_to "ar livre", root_path, class: 'btn-tag2 display:inline-block hvr-grow' %>
+      <%= link_to "online", root_path, class: 'btn-tag3 hvr-grow ' %>
+      <%= link_to "na cozinha", root_path, class: 'btn-tag4 hvr-grow' %>
+      <%= link_to "livros", root_path, class: 'btn-tag5 hvr-grow' %>
+      <%= link_to "aniversário", root_path, class: 'btn-tag6 hvr-grow' %>
+      <%= link_to "com amigos", root_path, class: 'btn-tag7 hvr-grow' %>
+      <%= link_to "+ muito mais!", root_path, class: 'btn-tag9 hvr-grow' %>
+    </div>
 
 <div class= 'container'>
 
 <div class="card-trip">
+  <%= link_to '#', class: 'link_image' do %>
  <img src="https://media.buzzle.com/media/images-en/photos/sports/soccer/1200-72968253-children-playing-soccer-ball.jpg" />
+ <% end %>
   <div class="card-trip-infos">
     <div>
       <h2>Soccer</h2>
@@ -59,7 +63,9 @@
 </div>
 
 <div class="card-trip">
+  <%= link_to '#', class: 'link_image' do %>
   <img src="https://statig1.akamaized.net/bancodeimagens/d4/ww/24/d4ww24vsz5cptkkxyzdhhj7p3.jpg" />
+  <% end %>
   <div class="card-trip-infos">
     <div>
       <h2>Games</h2>
@@ -72,7 +78,9 @@
 
 
 <div class="card-trip">
+  <%= link_to '#', class: 'link_image' do %>
   <img src="https://i.ytimg.com/vi/rQ7mERRzAKc/maxresdefault.jpg" />
+   <% end %>
   <div class="card-trip-infos">
     <div>
       <h2>Slime</h2>
@@ -85,7 +93,9 @@
 
 
 <div class="card-trip">
+   <%= link_to '#', class: 'link_image' do %>
    <img src="http://www.muitochique.com/wp-content/uploads/2020/03/atividades-para-crian%C3%A7as-com-autismo.jpg" />
+   <% end %>
   <div class="card-trip-infos">
     <div>
       <h2>Painting</h2>
