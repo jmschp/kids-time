@@ -12,23 +12,15 @@
   </head>
 
   <body>
-    <div class="container">
       <!-- code a navbar -->
-      <div class="navbar-lewagon flexbox">
-        <%= image_tag "logokidstime.png" %>
-        <%= link_to "Login / Sign up", root_path, class: 'btn-tag8' %>
-      </div>
+      <%= render('shared/navbar') %>
+      
       <%= yield %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
 
       <!-- code a footer -->
-      <div class="footer d-flex align-self-center align-items-center">
-        <div class="links ">
-          <a href="#"><i class="fab fa-fw fa-instagram"></i></a>
-          <p>KidsTime <i class="fas fa-heart"></i></p>
-        </div>
-      </div>
-    </div>
+      <%= render('shared/footer') %>
+      
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
   </body>
 </html>
