@@ -12,4 +12,8 @@
   <%= @activity.min_age%>
   <hr>
   <%= @activity.price%>
+  <hr>
+  <%= simple_form_for([@activity, @order]) do |f| %>
+    <%= f.submit %>
+  <% end %>
 </div>
