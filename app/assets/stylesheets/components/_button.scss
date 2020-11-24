@@ -1,0 +1,227 @@
+.btn-calltoaction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $blue;
+  padding: 16px 36px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18 px;
+  font-weight: medium;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
+  font-family: $body-font;
+}
+
+.btn-calltoaction:hover {
+  background-color: $red;
+  text-decoration: none;
+  color: white;
+  font-size: 18 px;
+  font-weight: medium;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag1 {
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: white;
+  font-weight: medium;
+  background-color: $blue;
+  text-decoration: none;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag1:hover {
+  background-color: $blue;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-family: $body-font;
+}
+
+.btn-tag2 {
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: white;
+  font-weight: medium;
+  background-color: $red;
+  text-decoration: none;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag2:hover {
+  background-color: $red;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-family: $body-font;
+}
+
+.btn-tag3 {
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: white;
+  font-weight: medium;
+  background-color: $yellow;
+  text-decoration: none;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag3:hover {
+  background-color: $yellow;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-family: $body-font;
+}
+
+.btn-tag4 {
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: white;
+  font-weight: medium;
+  background-color: $green;
+  text-decoration: none;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag4:hover {
+  background-color: $green;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-family: $body-font;
+}
+
+.btn-tag5 {
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: white;
+  font-weight: medium;
+  background-color: $orange;
+  text-decoration: none;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag5:hover {
+  background-color: $orange;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-family: $body-font;
+}
+
+.btn-tag6 {
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: white;
+  font-weight: medium;
+  background-color: $pink;
+  text-decoration: none;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag6:hover {
+  background-color: $pink;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-family: $body-font;
+}
+
+.btn-tag7 {
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: white;
+  font-weight: medium;
+  background-color: $purple;
+  text-decoration: none;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag7:hover {
+  background-color: $purple;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-family: $body-font;
+}
+
+.btn-tag8 {
+  text-decoration: none;
+  text-align: center;
+  color: $blue;
+  font-weight: medium;
+  font-size: 25;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag8:hover {
+  text-decoration: none;
+  text-align: center;
+  color: $blue;
+  font-weight: medium;
+  font-size: 25;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag9 {
+  padding: 8px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  color: $blue;
+  font-weight: medium;
+  font-size: 25;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-tag9:hover {
+  padding: 8px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  color: $blue;
+  font-weight: medium;
+  font-size: 25;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btns-category {
+  display: flex;
+  flex-wrap: wrap;
+  & > *{
+    margin: 5px 4px;
+  }
+}
+
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}

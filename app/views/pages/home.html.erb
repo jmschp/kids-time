@@ -1,0 +1,29 @@
+<!-- code a container section -->
+<div class="banner flexbox style="background:white">
+  <div class="container_custom col-sm-6" style="background-image: url(<%= image_url('ukulele.jpg')%>);object-fit: contain;">
+  </div>
+  <div class="container_custom col-sm-6">
+    <h1>Você criativo na educação do seus filhos</h1>
+    <p>Encontre ideias diferentes e serviços recomendados por outros pais e viva momentos especiais com seus filhos !</p>
+    <div class="btns-category">
+      <%= link_to "em casa", root_path, class: 'btn-tag1 display:inline-block hvr-grow' %>
+      <%= link_to "ar livre", root_path, class: 'btn-tag2 display:inline-block hvr-grow' %>
+      <%= link_to "online", root_path, class: 'btn-tag3 hvr-grow ' %>
+      <%= link_to "na cozinha", root_path, class: 'btn-tag4 hvr-grow' %>
+      <%= link_to "livros", root_path, class: 'btn-tag5 hvr-grow' %>
+      <%= link_to "aniversário", root_path, class: 'btn-tag6 hvr-grow' %>
+      <%= link_to "com amigos", root_path, class: 'btn-tag7 hvr-grow' %>
+      <%= link_to "+ muito mais!", root_path, class: 'btn-tag9 hvr-grow' %>
+    </div>
+    <a class="btn-calltoaction" href="#">Descubra atividades agora</a>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Pages#home</h1>
+  <p>Find me in app/views/pages/home.html.erb</p>
+  <%= link_to('Sign-in', user_session_path) %>
+  <%= link_to('Sign-up', new_user_registration_path) %>
+  <%= link_to('Log-out', destroy_user_session_path, { method: 'delete' } ) %>
+  <%= link_to('Activities', activities_path) %>
+<div>
