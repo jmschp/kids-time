@@ -15,12 +15,12 @@
 
 /* Utilities */
 body {
-  margin: 0;
+  // margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: white;
+  background-color: $white;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6{
   font-family: 'Roboto', sans-serif;
 }
 
@@ -31,5 +31,4 @@ a {
 .text-center {
   text-align: center;
 }
-
 
