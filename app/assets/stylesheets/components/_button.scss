@@ -1,5 +1,7 @@
 .btn-calltoaction {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #5AC2C9;
   padding: 16px 36px;
   border-radius: 10px;
@@ -8,6 +10,7 @@
   font-weight: medium;
   text-align: center;
   text-decoration: none;
+  margin-top: 10px;
 }
 
 .btn-calltoaction:hover {
@@ -154,4 +157,34 @@
   font-weight: medium;
   font-size: 25;
   text-align: center;
+}
+
+.btn-tag9 {
+  padding: 8px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  color: #5AC2C9;
+  font-weight: medium;
+  font-size: 25;
+  text-align: center;
+}
+
+.btn-tag9:hover {
+  padding: 8px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  color: #5AC2C9;
+  font-weight: medium;
+  font-size: 25;
+  text-align: center;
+}
+
+.btns-category {
+  display: flex;
+  flex-wrap: wrap;
+  & > *{
+    margin: 3px 2px;
+  }
 }
