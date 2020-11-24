@@ -111,4 +111,16 @@
   <div class="footer-copyright">
     This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
+
+<div class="container">
+  <h1>Activities#index</h1>
+  <p>Find me in app/views/activities/index.html.erb</p>
+  <% @activities.each do |activity| %>
+    <ul>
+      <li><%= activity.title %> - Price: R$ <%= activity.price %> <%= link_to('Details', activity_path(activity)) %>
+        <br>
+        <%= activity.user.name %>
+      </li>
+    </ul>
+  <% end %>
 </div>
