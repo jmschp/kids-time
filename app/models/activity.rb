@@ -9,6 +9,5 @@ class Activity < ApplicationRecord
   validates :duration, presence: true, length: { maximum: 50 }
   validates :duration, presence: true, length: { maximum: 50 }
   validates :min_age, presence: true, length: { maximum: 2 }
-  validates :max_age, length: { maximum: 2 }
   validates :price, length: { maximum: 10 }
 end

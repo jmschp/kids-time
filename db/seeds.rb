@@ -22,7 +22,7 @@ end
 50.times do
   act = Activity.new(
     title: Faker::Movie.title,
-    description: Faker::Lorem.paragraphs,
+    description: Faker::Lorem.sentence(word_count: rand(75..150)),
     category: ACTIVITY_CATEGORIES.sample,
     duration: duration.sample,
     min_age: rand(2..10),
@@ -31,5 +31,3 @@ end
   act.user = users.sample
   act.save
 end
-
-
