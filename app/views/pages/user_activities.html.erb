@@ -1,0 +1,11 @@
+<div class="container">
+<h1>My activities</h1>
+  <% if @user_activities.empty? %>
+    <h2>You do not have activities</h2>
+  <% else %>
+    <h2>Your activities</h2>
+    <% @user_activities.each do |activity| %>
+      <%= render('shared/card-activity', title: activity.title, category: activity.category, price: activity.price) %>
+    <% end %>
+  <% end %>
+</div>
