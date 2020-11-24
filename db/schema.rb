@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_181848) do
+ActiveRecord::Schema.define(version: 2020_11_24_105850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_181848) do
     t.text "description"
     t.string "category"
     t.string "duration"
-    t.integer "nim_age"
-    t.integer "max_age"
+    t.integer "min_age"
     t.decimal "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
