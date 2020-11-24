@@ -24,6 +24,33 @@
   font-family: $body-font;
 }
 
+.btn-signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $yellow;
+  padding: 16px 80px;
+  border-radius: 10px;
+  color: black;
+  font-size: 18 px;
+  font-weight: medium;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
+  font-family: $body-font;
+}
+
+.btn-signin:hover {
+  background-color: $purple;
+  text-decoration: none;
+  color: white;
+  font-size: 18 px;
+  font-weight: medium;
+  text-align: center;
+  font-family: $body-font;
+}
+
+
 .btn-tag1 {
   padding: 8px 16px;
   border-radius: 50px;
