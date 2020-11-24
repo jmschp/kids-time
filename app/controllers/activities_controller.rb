@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_action :set_activity, only: %i[show edit update]
+  before_action :set_activity, only: %i[show edit update destroy]
 
   def index
     @activities = Activity.all
@@ -32,6 +32,15 @@ class ActivitiesController < ApplicationController
       redirect_to root_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if current_user == activity.user
+      @activity.destroy
+      redirect_to user_profile_path
+    else
+      redirect_to root_path, alert: "You are not allowed to delete this activity"
     end
   end
 
