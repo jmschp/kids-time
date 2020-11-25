@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Activities#show</h1>
+  <p>Find me in app/views/activities/show.html.erb</p>
+  <%= @activity.title %>
+  <hr>
+  <%= @activity.description %>
+  <hr>
+  <%= @activity.category %>
+  <hr>
+  <%= @activity.duration %>
+  <hr>
+  <%= @activity.min_age%>
+  <hr>
+  <%= @activity.price%>
+  <hr>
+  <%= simple_form_for([@activity, @order]) do |f| %>
+    <%= f.submit %>
+  <% end %>
+</div>
