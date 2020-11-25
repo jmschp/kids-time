@@ -1,9 +1,14 @@
-<div class="container mt-4">
-  <div class="profile-card">
-    <%= image_tag "foto.jpg", class: "avatar-large", alt: "avatar-large" %>
-    <div class="profile-card-infos">
-      <h6><%= @user.name %></h4>
-      <p>9 feedbacks <br> Identidade verificada</p>
-    </div>
+<div class="container mt-3">
+  <div class="d-flex justify-content-between flex-wrap">
+  <div class="card-product">
+  <%= image_tag('foto.jpg') %>
+  <div class="card-product-infos">
+    <h2><%= @user.name %></h2>
+    <p><%= @user.email %></p>
+  </div>
+</div>
+    <% @user_orders.each do |order| %>
+      <%= render('shared/card-activity', title: order.activity.title, category: order.activity.category, price: order.activity.price) %>
+    <% end%>
   </div>
 </div>
