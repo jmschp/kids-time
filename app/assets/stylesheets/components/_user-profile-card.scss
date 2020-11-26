@@ -1,32 +1,37 @@
-.card-product {
-  overflow: hidden;
-  height: 350px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.user-profile-card {
+  background-color: $yellow;
+  width: 25%;
+  padding: 25px;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
 }
 
-.card-product img {
-  height: 100%;
-  width: 270px;
-  object-fit: cover;
+.user-profile-card-avatar {
+  text-align: center;
+  img {
+    margin-bottom: 10px;
+  }
+  h5 {
+    margin-bottom: 10px;
+  }
 }
 
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+.user-profile-card-infos {
+  margin: 10px 25px;
+  border-bottom: 1px solid $light-gray;
+  .star-profile {
+    color: $purple;
+  }
+  .check-profile {
+    color: $green;
+  }
 }
 
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-product .card-product-infos {
-  padding: 16px;
+.user-profile-card-links {
+  margin: 10px 25px;
+  a {
+    color: $gray;
+  }
 }

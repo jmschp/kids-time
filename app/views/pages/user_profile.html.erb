@@ -1,19 +1,34 @@
 <div class="container mt-4">
-  <div class="d-flex justify-content-between align-items-center flex-wrap">
-  <div class="card-product mb-4">
-  <% if @user.photo.present? %>
-  <%= cl_image_tag(@user.photo.key) %>
-  <% else %>
-  <%= image_tag('avatar.png') %>
-  <% end %>
 
-  <div class="card-product-infos">
-    <h2><%= @user.name %></h2>
-    <p><%= @user.email %></p>
+  <div class="d-flex justify-content-between">
+
+    <div class="user-profile-card col-3">
+      <div class="user-profile-card-avatar">
+        <%= cl_image_tag(@user.photo.key, transformation: [{width: 400, height: 400, gravity: "face", radius: "max", crop: "fill", quality: 80}, {width: 150, crop: "scale"}], class: "avatar-large") %>
+        <h5><%= @user.name %></h5>
+      </div>
+      <div class="user-profile-card-infos">
+        <p><i class="fas fa-star star-profile"></i> 9 Reviews <br>
+          <i class="fas fa-check check-profile"></i> Identidade verificada</p>
+      </div>
+      <div class="user-profile-card-links">
+        <%= link_to('#') do %>
+          <p><i class="fas fa-list-ol"></i> Minha wishlist</p>
+        <% end %>
+      </div>
+    </div>
+
+
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2>Product name</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
+        </div>
+      </div>
+
+
+    
   </div>
-</div>
-    <% @user_orders.each do |order| %>
-     <%= render('shared/card-activity', act_photo: order.activity.photo.present? ? order.activity.photo.key : false, title: order.activity.title, category: order.activity.category, price: order.activity.price, act_user_photo:  order.activity.user.photo.present? ? order.activity.user.photo.key : false) %>
-    <% end%>
-  </div>
+
 </div>
