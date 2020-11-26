@@ -3,11 +3,9 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
-    @user = current_user
   end
 
   def show
-    @user = current_user
     @order = Order.new
   end
 

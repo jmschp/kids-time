@@ -6,6 +6,10 @@
       <p><%= category %></p>
     </div>
     <h2 class="card-trip-pricing">R$ <%= price %></h2>
-      <%= cl_image_tag(user_photo, class: "card-trip-user avatar-bordered") %>
+    <% if act_user_photo %>
+      <%= cl_image_tag(act_user_photo, class: "card-trip-user avatar-bordered") %>
+    <% else %>
+      <%= image_tag('avatar.png', class: "card-trip-user avatar-bordered") %>
+    <% end %>
   </div>
 </div>
