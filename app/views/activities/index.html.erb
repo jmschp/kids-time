@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-between flex-wrap">
     <% @activities.each do |activity| %>
       <%= link_to(activity_path(activity)) do %>
-        <%= render('shared/card-activity', title: activity.title, category: activity.category, price: activity.price) %>
+        <%= render('shared/card-activity', act_photo: activity.photo.key, title: activity.title, category: activity.category, price: activity.price, user_photo: @user.photo.key) %>
        <% end %>
     <% end %>
   </div>

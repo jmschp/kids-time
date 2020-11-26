@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
+
   def create
+    @user = current_user
     @order = Order.new
-    @order.user = current_user
+    @order.user = @user
     @order.activity = Activity.find(params[:activity_id])
     if @order.save
       redirect_to orders_approved_path
@@ -11,5 +13,6 @@ class OrdersController < ApplicationController
   end
 
   def approved
+    @user = current_user
   end
 end
