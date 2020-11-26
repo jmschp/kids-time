@@ -1,8 +1,7 @@
 <div class="container mt-4">
 
-  <div class="d-flex justify-content-between">
-
-    <div class="user-profile-card col-3">
+  <div class="d-flex">
+    <div class="user-profile-card mr-3">
       <div class="user-profile-card-avatar">
         <%= cl_image_tag(@user.photo.key, transformation: [{width: 400, height: 400, gravity: "face", radius: "max", crop: "fill", quality: 80}, {width: 150, crop: "scale"}], class: "avatar-large") %>
         <h5><%= @user.name %></h5>
@@ -17,18 +16,6 @@
         <% end %>
       </div>
     </div>
-
-
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <h2>Product name</h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
-      </div>
-
-
     
   </div>
-
 </div>
