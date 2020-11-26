@@ -62,6 +62,7 @@ seeds = [
     password: '123123',
     address: Faker::Address.full_address
   )
+  users << user
 end
 
 seeds.each do |seed|
