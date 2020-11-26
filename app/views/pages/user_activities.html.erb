@@ -5,7 +5,7 @@
   <% else %>
     <h2>Your activities</h2>
     <% @user_activities.each do |activity| %>
-      <%= render('shared/card-activity', act_photo: activity.photo.key, title: activity.title, category: activity.category, price: activity.price, user_photo: @user.photo.key) %>
+      <%= render('shared/card-activity', act_photo: activity.photo.present? ? activity.photo.key : false, title: activity.title, category: activity.category, price: activity.price, act_user_photo:  activity.user.photo.present? ? activity.user.photo.key : false) %>
     <% end %>
   <% end %>
 </div>
