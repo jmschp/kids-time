@@ -13,7 +13,7 @@
 
   <body>
       <!-- code a navbar -->
-      <%= render('shared/navbar') %>
+      <%= render('shared/navbar', user_photo: @user.photo.key) %>
       <%= render('shared/flashes') %>
       
       <%= yield %>

@@ -2,7 +2,7 @@ ACTIVITY_CATEGORIES = ["Aniversário", "Ar livre", "Casa", "Com Amigos", "Cozinh
 class Activity < ApplicationRecord
   belongs_to :user
   has_many :orders
-  has_many_attached :photos
+  has_one_attached :photo
   validates :title, presence: true, length: { maximum: 150 }
   validates :description, presence: true, length: { maximum: 1000 }
   validates :category, presence: true, inclusion: { in: ACTIVITY_CATEGORIES }

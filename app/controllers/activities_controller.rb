@@ -3,14 +3,17 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
+    @user = current_user
   end
 
   def show
+    @user = current_user
     @order = Order.new
   end
 
   def new
     @activity = Activity.new
+    @user = current_user
   end
 
   def create
@@ -51,6 +54,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :category, :duration, :min_age, :price)
+    params.require(:activity).permit(:title, :description, :category, :duration, :min_age, :price, :photo)
   end
 end
