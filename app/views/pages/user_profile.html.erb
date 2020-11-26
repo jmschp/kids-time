@@ -13,7 +13,7 @@
   </div>
 </div>
     <% @user_orders.each do |order| %>
-      <%= render('shared/card-activity', act_photo: order.activity.photo.key, title: order.activity.title, category: order.activity.category, price: order.activity.price, user_photo: @user.photo.key) %>
+     <%= render('shared/card-activity', act_photo: order.activity.photo.present? ? order.activity.photo.key : false, title: order.activity.title, category: order.activity.category, price: order.activity.price, act_user_photo:  order.activity.user.photo.present? ? order.activity.user.photo.key : false) %>
     <% end%>
   </div>
 </div>
