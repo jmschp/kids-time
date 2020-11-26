@@ -3,12 +3,14 @@
   width: 500px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
 }
 
 .card-trip > img {
   height: 250px;
   width: 100%;
   object-fit: cover;
+  border-radius-top: 10px;
 }
 
 .card-trip h2 {
@@ -37,4 +39,5 @@
   right: 16px;
   top: -20px;
   width: 40px;
+  length: 40px;
 }
