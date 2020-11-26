@@ -1,18 +1,37 @@
-<h2>Forgot your password?</h2>
+<div class="container">
+  <div class="banner flexbox" style="background:white">
+    <div class="col-sm-6">
+      <%= render "shared/logintxt" %>
+    </div>
+    <div class="container_custom col-sm-6">
+      <div class="row my-5 ">
+        <div class="col-6 border-bottom border-info">
+          <%= link_to "Log in", new_session_path(resource_name), class: 'text-dark' %>
+        </div>
+        <div class= "col-6 text-right border-bottom ">
+          <%= link_to "Sign up", new_session_path(resource_name), class: 'text-secondary' %>
+        </div>
+        <div class= "container">
+          <h5 style= "margin-top:30px; margin-bottom: 15px;">Esqueceu da senha?</h5>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Send me reset password instructions", class: 'btn-signin btn-block' %>
+          </div>
+        <% end %>
+       </div>
+      </div>
+    </div>
+
+
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
