@@ -1,14 +1,14 @@
-<div class="container mt-3">
-  <div class="d-flex justify-content-between flex-wrap">
-  <div class="card-product">
-  <%= image_tag('foto.jpg') %>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center flex-wrap">
+  <div class="card-product mb-4">
+  <%= cl_image_tag(@user.photo.key) %>
   <div class="card-product-infos">
     <h2><%= @user.name %></h2>
     <p><%= @user.email %></p>
   </div>
 </div>
     <% @user_orders.each do |order| %>
-      <%= render('shared/card-activity', title: order.activity.title, category: order.activity.category, price: order.activity.price) %>
+      <%= render('shared/card-activity', act_photo: order.activity.photo.key, title: order.activity.title, category: order.activity.category, price: order.activity.price, user_photo: @user.photo.key) %>
     <% end%>
   </div>
 </div>
