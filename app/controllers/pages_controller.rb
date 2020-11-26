@@ -6,11 +6,11 @@ class PagesController < ApplicationController
 
   def user_profile
     @user = current_user
-    @user_orders = @user.orders
+    @user_activities = @user.activities
   end
 
-  def user_activities
+  def user_orders
     @user = current_user
-    @user_activities = @user.activities
+    @user_orders = @user.orders
   end
 end
