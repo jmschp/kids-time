@@ -2,7 +2,14 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy]
 
   def index
-    @activities = Activity.all
+    category = params[:category]
+    if category.present?
+      @activities = Activity.where(category: category)
+    else
+      @activities = Activity.all
+    end
+
+
   end
 
   def show

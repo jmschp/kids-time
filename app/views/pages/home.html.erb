@@ -6,14 +6,14 @@
       <h1>Seja criativo na educação do seus filhos</h1>
       <p>Encontre ideias diferentes e serviços recomendados por outros pais e viva momentos especiais com seus filhos!</p>
       <div class="btns-category">
-        <%= link_to "em casa", root_path, class: 'btn-tag1 display:inline-block hvr-grow' %>
-        <%= link_to "ar livre", root_path, class: 'btn-tag2 display:inline-block hvr-grow' %>
-        <%= link_to "online", root_path, class: 'btn-tag3 hvr-grow ' %>
-        <%= link_to "na cozinha", root_path, class: 'btn-tag4 hvr-grow' %>
-        <%= link_to "livros", root_path, class: 'btn-tag5 hvr-grow' %>
-        <%= link_to "aniversário", root_path, class: 'btn-tag6 hvr-grow' %>
-        <%= link_to "com amigos", root_path, class: 'btn-tag7 hvr-grow' %>
-        <%= link_to "+ muito mais!", root_path, class: 'btn-tag9 hvr-grow' %>
+        <%= link_to "casa", activities_path(category: 'Casa'), class: 'btn-tag1 display:inline-block hvr-grow' %>
+        <%= link_to "ar livre", activities_path(category: 'Ar livre'), class: 'btn-tag2 display:inline-block hvr-grow' %>
+        <%= link_to "online", activities_path(category: 'Online'), class: 'btn-tag3 hvr-grow' %>
+        <%= link_to "cozinha", activities_path(category: 'Cozinha'), class: 'btn-tag4 hvr-grow' %>
+        <%= link_to "livros", activities_path(category: 'Livros'), class: 'btn-tag5 hvr-grow' %>
+        <%= link_to "aniversário", activities_path(category: 'Aniversário'), class: 'btn-tag6 hvr-grow' %>
+        <%= link_to "com amigos", activities_path(category: 'Com Amigos'), class: 'btn-tag7 hvr-grow' %>
+        <%= link_to "+ muito mais!", activities_path(category: 'Outros'), class: 'btn-tag9 hvr-grow' %>
       </div>
       <a class="btn-calltoaction" href="#">Descubra atividades agora</a>
     </div>
