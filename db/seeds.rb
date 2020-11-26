@@ -68,24 +68,6 @@ seeds = [
   )
 end
 
-# seeds.each do |seed|
-#   act = Activity.new(
-#     title: seed[0],
-#     description: seed[1],
-#     category: categories.sample,
-#     duration: duration.sample,
-#     min_age: rand(2..10),
-#     price: rand(50..500)
-#   )
-#   act.user = users.sample
-#   act.save
-
-#   url = "https://source.unsplash.com/featured/?kids,#{seed[3]}"
-#   photo = URI.open(url)
-#   act.photo.attach(io: photo, filename: "#{seed[0]}.jpg", content_type: 'image/jpg')
-# end
-
-
 seeds.each do |seed|
   act = Activity.new(
     title: seed[0],
@@ -100,4 +82,3 @@ seeds.each do |seed|
   act.photo.attach(io: photo, filename: "#{seed[0]}.jpg", content_type: 'image/jpg')
   act.save!
 end
-
