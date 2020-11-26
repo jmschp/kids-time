@@ -1,37 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 require 'net/http'
 require "open-uri"
+Order.destroy_all
+Activity.destroy_all
+User.destroy_all
+
 
 duration = ['1 dia', '5 horas', '2 horas', '12 horas', '3 horas', '8 horas', '1 hora']
 categories = ["Aniversário", "Ar livre", "Casa", "Com Amigos", "Cozinha", "Livros", "Online", "Outros"]
-users = []
+user = User.create!(name: 'Tati', password: '021293', email: 'fernando.er.moraes@gmail.com', born_year: 1993)
 
-10.times do
-  users << User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: '123123'
-  )
-end
-
-50.times do
-  act = Activity.new(
-      title: Faker::Movie.title,
-      description: Faker::Lorem.sentence(word_count: rand(75..150)),
-      category: categories.sample,
-      duration: duration.sample,
-      min_age: rand(2..10),
-      price: rand(50..500)
-    )
-    act.user = users.sample
-    act.save
-  end
 
 
 seeds = [
@@ -62,13 +40,13 @@ seeds = [
   ['Aula de Skate', 'Venha na pista de skate do parque Ibirapuera para uma aula inesquecível. temos capacete e joelheira para toda proteção necessária. Após a aula entregamos um Ticket para criança que vale uma água de coco, e um milho com manteiga, na barraca do Betão. O amor de uma criança é o único sentimento incapaz de machucar. É o amor na sua maneira mais pura e genuína, o amor de quem quer ver o outro bem, independentemente do que for preciso fazer. É o amor de quem enxerga na felicidade do outro a própria felicidade. É o amor que cuida, que compreende e que cura qualquer mal. Os pequenos que mal sabem ao certo o que é amar nos ensinam mais que qualquer adulto é capaz. Para todas as dores da vida, um amor sincero de criança.',
     categories[1], 'https://www.liveabout.com/thmb/9jkRmXiEwl0yJdcp1gYBMv8bPBs=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/father-teaching-son--10-11--skateboard-sb10067809f-002-59f1d27dd088c00010298fc1.jpg'],
   ['Passeio de bicicleta', 'Venha andar de bicleta no parque Ibirapuera para um dia inesquecível. Após a aula entregamos um Ticket para criança que vale uma água de coco, e um milho com manteiga, na barraca do Betão. As crianças são como raios de sol em dias nublados. Elas nos fazem acreditar que o mundo é bom, mesmo depois de tantas decepções. Elas nos fazem lembrar a importância de ser sincero e de sorrir de forma genuína até mesmo por causa dos menores motivos. As crianças nos fazem lembrar que a vida não precisa ser pesada e que tudo depende da maneira como olhamos o mundo. Nos dias nublados, as crianças aparecem como raios de sol para nos lembrar de que o dia sempre nasce de novo e de que, após a tempestade, o arco-íris aparece.',
-    categories[1], 'https://images.immediate.co.uk/production/volatile/sites/21/2019/03/kids_bike_helmets-1513600311535-1e9etlq3nt0ne-1000-100-ca40c41.jpg?quality=90&resize=620%2C349'],
+    categories[1], 'https://images.immediate.co.uk/production/volatile/sites/21/2019/03/kids_bike_helmets-1513600311535-1e9etlq3nt0ne-1000-100-ca40c41.jpg'],
   ['Horta','Vamos aprender como fazer uma horta. Vamos plantar girassóis, feijão, cenoura, pimenta, alho e outras maravilhas da nossa terra. Aqui as crianças entendem o valor de cuidar e cultivar nossa terra. Criança deve ser tudo que quiser, mas o que realmente importa é que seja feliz. Que sorria o tempo todo. Que sonhe e sonhe muito. Que a sua imaginação cheia de cores seja sua condutora e brote livremente a toda hora. Criança deve ser feliz sempre, não ter pesos no pensamento, preocupações ou decepções. Pois assim crescerá forte, e se tornará um adulto saudável e feliz.',
     categories[1], 'https://www.smartplayhouse.com/wp-content/uploads/2014/11/1-Vegetable-garden-for-children.jpg'],
   ['Escultura de balões', 'Aprenda a esculturas em balões. Aprenderemos a fazer  cachorro, coelho, casinha,flores e muito mais! Tudo com muita imaginação e diversão! Como é gostoso olhar para o mundo e encontrar uma novidade em cada canto, ver a vida com curiosidade e sentir um deslumbre em descobrir coisas novas. A criança tem uma visão desprovida de preconceitos e julgamentos e essa pureza deve ser conservada ao máximo.',
     categories[4], 'https://i.pinimg.com/originals/8c/dc/81/8cdc81bae59300b838ef0b2500498c38.jpg'],
-  ['Show de Mágica', 'Comemore seu aniversário com o melhor show de mágica de São Paulo. Mágicas inéditas, jamais vistas online em qualquer lugar. Oportunidade única! Além disso as crianças aprenderam a fazer alguns truques para surpreender seus familiares e amigos. Ser criança é ser feliz com pouco ou nada, e ter tudo o que precisa ao alcance de um sonho. Ser criança é ser luz e bondade, inocência e pureza. Por isso cresça, mas nunca deixe parte da sua criança interior desaparecer totalmente. Guarde um pedaço da mágica que é ser criança para sempre, e nunca lhe faltará alegria.', 
-    categories[0], 'https://www.club24west.com/wp-content/uploads/2017/01/Magician-for-a-Childs-Birthday-Party.jpg'],
+  # ['Show de Mágica', 'Comemore seu aniversário com o melhor show de mágica de São Paulo. Mágicas inéditas, jamais vistas online em qualquer lugar. Oportunidade única! Além disso as crianças aprenderam a fazer alguns truques para surpreender seus familiares e amigos. Ser criança é ser feliz com pouco ou nada, e ter tudo o que precisa ao alcance de um sonho. Ser criança é ser luz e bondade, inocência e pureza. Por isso cresça, mas nunca deixe parte da sua criança interior desaparecer totalmente. Guarde um pedaço da mágica que é ser criança para sempre, e nunca lhe faltará alegria.',
+  #   categories[0], 'https://www.club24west.com/wp-content/uploads/2017/01/Magician-for-a-Childs-Birthday-Party.jpg'],
   ['Vôlei', 'Venha brincar com todos seus amigos do esporte que mais cresce no brasil. Aqui sempre da time, pode trazer seus amigos que tem sempre espaço! Se encontramos no parque do povo para jogar ate cansar! Relaxa que tem barquinhas de comida em todo parque. As crianças são a luz do mundo, a alegria do presente e a esperança do futuro. Nas suas mãozinhas pequenas se começa a construir o amanhã, e nos seus coraçõezinhos bate já a ambição do que virá.',
     categories[3], 'https://www.focolare.org/famiglienuove/files/2018/03/Volleyball-kids-1.jpg'],
   ['Brinquedoteca', 'Venha brincar com todos seus amigos no quarto de brinquedos mais legal! Aqui sempre tem brinquedo novo pra inspirar suas crianças, pode trazer seus amigos que tem sempre espaço! Temos desde de carrinhos, pista da hot-wheels, até bonecas da Yiuly Brule. Espero que você tenha se comportado bem durante todo o ano, pois o Papai Noel esteve atento e na hora de distribuir os presentes, apenas os bem-comportados vão receber muitos. Mas eu sei que você se portou muito bem, pois é uma criança adorável e muito especial. Por isso não duvido que encontrará seu sapatinho cheio de presentes.',
@@ -83,24 +61,20 @@ seeds = [
     categories[1], 'https://bigcedar.com/wp-content/uploads/2020/01/Kids-Fishing-1.jpg']
 ]
 
-# seeds.each do |seed|
-#   act = Activity.new(
-#     title: seed[0],
-#     description: seed[1],
-#     category: categories.sample,
-#     duration: duration.sample,
-#     min_age: rand(2..10),
-#     price: rand(50..500)
-#   )
-#   act.user = users.sample
-#   act.save
-# end
 
-# as = Activity.all
 
-# seeds.each do |seed|
-#   as.each do |a|
-#     photo = URI.open(seed[3])
-#     a.photos.attach(io: photo, filename: "#{seed[0]}.jpg", content_type: 'image/jpg')
-#   end
-# end
+seeds.each do |seed|
+  act = Activity.new(
+    title: seed[0],
+    description: seed[1],
+    category: seed[2],
+    duration: duration.sample,
+    min_age: rand(2..10),
+    price: rand(50..500),
+    user: user
+  )
+  photo = URI.open(seed[3])
+  act.photo.attach(io: photo, filename: "#{seed[0]}.jpg", content_type: 'image/jpg')
+  act.save!
+end
+
