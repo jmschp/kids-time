@@ -1,38 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-require 'net/http'
 require "open-uri"
+
+Order.destroy_all
+Activity.destroy_all
+User.destroy_all
 
 duration = ['1 dia', '5 horas', '2 horas', '12 horas', '3 horas', '8 horas', '1 hora']
 categories = ["Aniversário", "Ar livre", "Casa", "Com Amigos", "Cozinha", "Livros", "Online", "Outros"]
 users = []
-
-# 10.times do
-#   users << User.create(
-#     name: Faker::Name.name,
-#     email: Faker::Internet.email,
-#     password: '123123'
-#   )
-# end
-
-# 50.times do
-#   act = Activity.new(
-#       title: Faker::Movie.title,
-#       description: Faker::Lorem.sentence(word_count: rand(75..150)),
-#       category: categories.sample,
-#       duration: duration.sample,
-#       min_age: rand(2..10),
-#       price: rand(50..500)
-#     )
-#     act.user = users.sample
-#     act.save
-#   end
-
 
 seeds = [
   ['Futebol', 'Venha jogar futebol no parque Vila Lobos com seus melhores amigos! Aqui com certeza vai sempre dar time. Não permita que ninguém roube os seus sonhos, só você pode correr atrás e realizá-los. Não perca a sua essência, acredite na magia da infância e continue vivendo em harmonia. Você tem a vida inteira pela frente, aproveite cada momento como se fosse o último!',
@@ -62,7 +36,7 @@ seeds = [
   ['Aula de Skate', 'Venha na pista de skate do parque Ibirapuera para uma aula inesquecível. temos capacete e joelheira para toda proteção necessária. Após a aula entregamos um Ticket para criança que vale uma água de coco, e um milho com manteiga, na barraca do Betão. O amor de uma criança é o único sentimento incapaz de machucar. É o amor na sua maneira mais pura e genuína, o amor de quem quer ver o outro bem, independentemente do que for preciso fazer. É o amor de quem enxerga na felicidade do outro a própria felicidade. É o amor que cuida, que compreende e que cura qualquer mal. Os pequenos que mal sabem ao certo o que é amar nos ensinam mais que qualquer adulto é capaz. Para todas as dores da vida, um amor sincero de criança.',
     categories[1], 'https://www.liveabout.com/thmb/9jkRmXiEwl0yJdcp1gYBMv8bPBs=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/father-teaching-son--10-11--skateboard-sb10067809f-002-59f1d27dd088c00010298fc1.jpg'],
   ['Passeio de bicicleta', 'Venha andar de bicleta no parque Ibirapuera para um dia inesquecível. Após a aula entregamos um Ticket para criança que vale uma água de coco, e um milho com manteiga, na barraca do Betão. As crianças são como raios de sol em dias nublados. Elas nos fazem acreditar que o mundo é bom, mesmo depois de tantas decepções. Elas nos fazem lembrar a importância de ser sincero e de sorrir de forma genuína até mesmo por causa dos menores motivos. As crianças nos fazem lembrar que a vida não precisa ser pesada e que tudo depende da maneira como olhamos o mundo. Nos dias nublados, as crianças aparecem como raios de sol para nos lembrar de que o dia sempre nasce de novo e de que, após a tempestade, o arco-íris aparece.',
-    categories[1], 'https://images.immediate.co.uk/production/volatile/sites/21/2019/03/kids_bike_helmets-1513600311535-1e9etlq3nt0ne-1000-100-ca40c41.jpg?quality=90&resize=620%2C349'],
+    categories[1], 'https://images.immediate.co.uk/production/volatile/sites/21/2019/03/kids_bike_helmets-1513600311535-1e9etlq3nt0ne-1000-100-ca40c41.jpg'],
   ['Horta','Vamos aprender como fazer uma horta. Vamos plantar girassóis, feijão, cenoura, pimenta, alho e outras maravilhas da nossa terra. Aqui as crianças entendem o valor de cuidar e cultivar nossa terra. Criança deve ser tudo que quiser, mas o que realmente importa é que seja feliz. Que sorria o tempo todo. Que sonhe e sonhe muito. Que a sua imaginação cheia de cores seja sua condutora e brote livremente a toda hora. Criança deve ser feliz sempre, não ter pesos no pensamento, preocupações ou decepções. Pois assim crescerá forte, e se tornará um adulto saudável e feliz.',
     categories[1], 'https://www.smartplayhouse.com/wp-content/uploads/2014/11/1-Vegetable-garden-for-children.jpg'],
   ['Escultura de balões', 'Aprenda a esculturas em balões. Aprenderemos a fazer  cachorro, coelho, casinha,flores e muito mais! Tudo com muita imaginação e diversão! Como é gostoso olhar para o mundo e encontrar uma novidade em cada canto, ver a vida com curiosidade e sentir um deslumbre em descobrir coisas novas. A criança tem uma visão desprovida de preconceitos e julgamentos e essa pureza deve ser conservada ao máximo.',
@@ -83,24 +57,27 @@ seeds = [
     categories[1], 'https://bigcedar.com/wp-content/uploads/2020/01/Kids-Fishing-1.jpg']
 ]
 
+5.times do
+  user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: '123123',
+    address: Faker::Address.full_address
+  )
+  users << user
+end
+
 seeds.each do |seed|
   act = Activity.new(
     title: seed[0],
     description: seed[1],
-    category: categories.sample,
+    category: seed[2],
     duration: duration.sample,
     min_age: rand(2..10),
-    price: rand(50..500)
+    price: rand(50..500),
+    user: users.sample
   )
-  act.user = users.sample
-  act.save
-end
-
-as = Activity.all
-
-seeds.each do |seed|
-  as.each do |a|
-    photo = URI.open(seed[3])
-    a.photos.attach(io: photo, filename: "#{seed[0]}.jpg", content_type: 'image/jpg')
-  end
+  photo = URI.open(seed[3])
+  act.photo.attach(io: photo, filename: "#{seed[0]}.jpg", content_type: 'image/jpg')
+  act.save!
 end
