@@ -1,5 +1,8 @@
-<ul>
+<div class="container">
+  <div class="container justify-content-center">
+    <h5 class="mt-4 mb-3 justify-content-center">Meu histórico de compras</h5>
     <% @user_orders.each do |order| %>
-        <li><%= order.activity.title %> </li>
+      <%= render('shared/card-activity', act_photo: order.activity.photo.present? ? order.activity.photo.key : false, title: order.activity.title, category: order.activity.category, price: order.activity.price, act_user_photo:  order.activity.user.photo.present? ? order.activity.user.photo.key : false) %>
     <% end %>
-</ul>
+  </div>
+</div>
