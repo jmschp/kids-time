@@ -2,14 +2,15 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy]
 
   def index
+    min_age = params[:min_age]
     category = params[:category]
     if category.present?
       @activities = Activity.where(category: category)
+    elsif min_age.present?
+      @activities = Activity.where(min_age: min_age)
     else
       @activities = Activity.all
     end
-
-
   end
 
   def show
@@ -25,7 +26,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     @activity.user = current_user
     if @activity.save
-      redirect_to root_path
+      redirect_to activity_path(@activity)
     else
       render :new
     end
@@ -37,14 +38,14 @@ class ActivitiesController < ApplicationController
   def update
     @activity.update(activity_params)
     if @activity.save
-      redirect_to root_path
+      redirect_to activity_path(@activity)
     else
       render :edit
     end
   end
 
   def destroy
-    if current_user == activity.user
+    if current_user == @activity.user
       @activity.destroy
       redirect_to user_profile_path
     else
