@@ -34,6 +34,9 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
+gem "open-uri"
+
+
 # Devise An authentication gem for Rails
 gem 'devise'
 gem 'faker'
