@@ -63,6 +63,10 @@ puts "Criando usuários"
     address: Faker::Address.full_address
   )
   users << user
+  photo = URI.open("https://source.unsplash.com/featured/?profile,picture")
+  puts "User Photo"
+  user.photo.attach(io: photo, filename: "#{user.name}.jpg", content_type: 'image/jpg')
+  user.save!
 end
 
 puts "Criando atividades"

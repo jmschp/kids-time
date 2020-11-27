@@ -15,7 +15,7 @@
         <%= link_to "com amigos", activities_path(category: 'Com Amigos'), class: 'btn-tag7 hvr-grow' %>
         <%= link_to "+ muito mais!", activities_path(category: 'Outros'), class: 'btn-tag9 hvr-grow' %>
       </div>
-      <a class="btn-calltoaction" href="#">Descubra atividades agora</a>
+      <%= link_to("Descubra atividades agora", activities_path, class: "btn-calltoaction") %>
     </div>
   </div>
 </div>
