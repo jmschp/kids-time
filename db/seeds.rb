@@ -12,26 +12,26 @@ duration = ['1 dia', '5 horas', '2 horas', '12 horas', '3 horas', '8 horas', '1 
 categories = ["Aniversário", "Ar livre", "Casa", "Com Amigos", "Cozinha", "Livros", "Online", "Outros"]
 users = []
 
-10.times do
-  users << User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: '123123'
-  )
-end
+# 10.times do
+#   users << User.create(
+#     name: Faker::Name.name,
+#     email: Faker::Internet.email,
+#     password: '123123'
+#   )
+# end
 
-50.times do
-  act = Activity.new(
-      title: Faker::Movie.title,
-      description: Faker::Lorem.sentence(word_count: rand(75..150)),
-      category: categories.sample,
-      duration: duration.sample,
-      min_age: rand(2..10),
-      price: rand(50..500)
-    )
-    act.user = users.sample
-    act.save
-  end
+# 50.times do
+#   act = Activity.new(
+#       title: Faker::Movie.title,
+#       description: Faker::Lorem.sentence(word_count: rand(75..150)),
+#       category: categories.sample,
+#       duration: duration.sample,
+#       min_age: rand(2..10),
+#       price: rand(50..500)
+#     )
+#     act.user = users.sample
+#     act.save
+#   end
 
 
 seeds = [
@@ -66,7 +66,7 @@ seeds = [
   ['Horta','Vamos aprender como fazer uma horta. Vamos plantar girassóis, feijão, cenoura, pimenta, alho e outras maravilhas da nossa terra. Aqui as crianças entendem o valor de cuidar e cultivar nossa terra. Criança deve ser tudo que quiser, mas o que realmente importa é que seja feliz. Que sorria o tempo todo. Que sonhe e sonhe muito. Que a sua imaginação cheia de cores seja sua condutora e brote livremente a toda hora. Criança deve ser feliz sempre, não ter pesos no pensamento, preocupações ou decepções. Pois assim crescerá forte, e se tornará um adulto saudável e feliz.',
     categories[1], 'https://www.smartplayhouse.com/wp-content/uploads/2014/11/1-Vegetable-garden-for-children.jpg'],
   ['Escultura de balões', 'Aprenda a esculturas em balões. Aprenderemos a fazer  cachorro, coelho, casinha,flores e muito mais! Tudo com muita imaginação e diversão! Como é gostoso olhar para o mundo e encontrar uma novidade em cada canto, ver a vida com curiosidade e sentir um deslumbre em descobrir coisas novas. A criança tem uma visão desprovida de preconceitos e julgamentos e essa pureza deve ser conservada ao máximo.',
-    categories[4], 'https://i.pinimg.com/originals/8c/dc/81/8cdc81bae59300b838ef0b2500498c38.jpg'],
+    categories[0], 'https://i.pinimg.com/originals/8c/dc/81/8cdc81bae59300b838ef0b2500498c38.jpg'],
   ['Show de Mágica', 'Comemore seu aniversário com o melhor show de mágica de São Paulo. Mágicas inéditas, jamais vistas online em qualquer lugar. Oportunidade única! Além disso as crianças aprenderam a fazer alguns truques para surpreender seus familiares e amigos. Ser criança é ser feliz com pouco ou nada, e ter tudo o que precisa ao alcance de um sonho. Ser criança é ser luz e bondade, inocência e pureza. Por isso cresça, mas nunca deixe parte da sua criança interior desaparecer totalmente. Guarde um pedaço da mágica que é ser criança para sempre, e nunca lhe faltará alegria.',
     categories[0], 'https://www.club24west.com/wp-content/uploads/2017/01/Magician-for-a-Childs-Birthday-Party.jpg'],
   ['Vôlei', 'Venha brincar com todos seus amigos do esporte que mais cresce no brasil. Aqui sempre da time, pode trazer seus amigos que tem sempre espaço! Se encontramos no parque do povo para jogar ate cansar! Relaxa que tem barquinhas de comida em todo parque. As crianças são a luz do mundo, a alegria do presente e a esperança do futuro. Nas suas mãozinhas pequenas se começa a construir o amanhã, e nos seus coraçõezinhos bate já a ambição do que virá.',
@@ -83,24 +83,24 @@ seeds = [
     categories[1], 'https://bigcedar.com/wp-content/uploads/2020/01/Kids-Fishing-1.jpg']
 ]
 
-# seeds.each do |seed|
-#   act = Activity.new(
-#     title: seed[0],
-#     description: seed[1],
-#     category: categories.sample,
-#     duration: duration.sample,
-#     min_age: rand(2..10),
-#     price: rand(50..500)
-#   )
-#   act.user = users.sample
-#   act.save
-# end
+seeds.each do |seed|
+  act = Activity.new(
+    title: seed[0],
+    description: seed[1],
+    category: categories.sample,
+    duration: duration.sample,
+    min_age: rand(2..10),
+    price: rand(50..500)
+  )
+  act.user = users.sample
+  act.save
+end
 
-# as = Activity.all
+as = Activity.all
 
-# seeds.each do |seed|
-#   as.each do |a|
-#     photo = URI.open(seed[3])
-#     a.photos.attach(io: photo, filename: "#{seed[0]}.jpg", content_type: 'image/jpg')
-#   end
-# end
+seeds.each do |seed|
+  as.each do |a|
+    photo = URI.open(seed[3])
+    a.photos.attach(io: photo, filename: "#{seed[0]}.jpg", content_type: 'image/jpg')
+  end
+end
