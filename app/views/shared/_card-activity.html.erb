@@ -1,5 +1,5 @@
 <div class="card-trip mb-4">
-    <%= cl_image_tag(act_photo) %>
+    <%= cl_image_tag(act_photo) unless act_photo %>
   <div class="card-trip-infos">
     <div>
       <h2><%= title %></h2>
