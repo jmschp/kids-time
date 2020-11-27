@@ -1,7 +1,7 @@
 <div class= "container bg-info" >
   <div class="row justify-content-center">
     <div class="bg-light col-6 my-4 py-4" style= "border-radius: 10px;">
-      <h4 style="margin-bottom: 15px; text-align: center;">Nova atividade</h4>
+      <h4 style="margin-bottom: 15px; text-align: center;">Detalhes da Atividade</h4>
       <%= simple_form_for(activity) do |f| %>
       <div>
         <%= f.input :category, label:"Categoria", collection: ACTIVITY_CATEGORIES %>
@@ -19,7 +19,7 @@
         <%= f.input :photo, label:"Foto", as: :file %>
       </div>
       <div class="form-actions">
-        <%= f.submit "Create new activity", class: 'btn btn-create btn-block mt-4' %>
+        <%= f.submit "Submeter", class: 'btn btn-create btn-block mt-4' %>
       </div>
       <% end %>
     </div>
