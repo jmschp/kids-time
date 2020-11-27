@@ -8,9 +8,4 @@ class PagesController < ApplicationController
     @user = current_user
     @user_activities = @user.activities
   end
-
-  def user_orders
-    @user = current_user
-    @user_orders = @user.orders
-  end
 end
