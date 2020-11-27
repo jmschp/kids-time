@@ -1,5 +1,9 @@
 <div class="card-trip mb-4">
-    <%= cl_image_tag(act_photo) unless act_photo %>
+  <% if act_photo %>
+    <%= cl_image_tag(act_photo)%>
+  <% else %>
+    <%= image_tag('placeholder.png') %>
+  <% end %>
   <div class="card-trip-infos">
     <div>
       <h2><%= title %></h2>
