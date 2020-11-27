@@ -1,35 +1,39 @@
 <div class="container mt-4">
   <div class="row">
-  <div class="col mb-3" style="background-color: white;">
-    <h1><%= @activity.title %></h1>
-    <%= render('shared/rating_star') * 5 %>
+  <div class="col d-flex justify-content-between align-items-center">
+    <div>
+      <h1><%= @activity.title %></h1>
+      <% 5.times do %>
+        <i class="fas fa-star show-stars"></i>
+      <% end %>
+    </div>
+    <div class="d-flex">
+     <% if @activity.user == current_user %>
+      <%= link_to("Editar", edit_activity_path(@activity), class: "btn-calltoaction mx-3") %>
+      <%= link_to("Apagar", activity_path(@activity), class: "btn-calltodelete", method: :delete, data: {confirm: "Tem certeza?"}) %>
+     <% end %>
+    </div>
   </div>
  </div>
   <div class="d-flex">
+    <% if @activity.photo.present? %>
     <%= cl_image_tag(@activity.photo.key, class: "main-pic") %>
-    <div class=" d-flex flex-wrap">
-
-    </div>
+    <% end %>
   </div>
   <div>
-    <a class="btn btn-cat5" href="#">Aniversario</a>
+    <%= link_to("#{@activity.min_age} anos +", activities_path(min_age: @activity.min_age), class: "btn btn-cat4") %>
+    <%= link_to(@activity.category, activities_path(category: @activity.category), class: "btn btn-cat5") %>
   </div>
   <h4>Descrição</h4>
   <%= @activity.description %>
   <hr>
-  <h4>Categoria</h4>
-  <%= @activity.category %>
-  <hr>
   <h4>Duração</h4>
   <%= @activity.duration %>
-  <hr>
-  <h4>Idade Mínima</h4>
-  <%= @activity.min_age%>
   <hr>
   <h4>Preço</h4>
   <%= @activity.price%>
   <hr>
   <%= simple_form_for([@activity, @order]) do |f| %>
-    <%= f.submit %>
+    <%= f.submit class: "btn-calltoaction" %>
   <% end %>
 </div>

@@ -277,5 +277,32 @@
 .hvr-grow:hover,
 .hvr-grow:focus,
 .hvr-grow:active {
-    transform: scale(0.5);
+    transform: scale(1.1);
+}
+
+
+.btn-calltodelete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $red;
+  padding: 16px 36px;
+  border-radius: 10px;
+  color: $white;
+  font-size: 18 px;
+  font-weight: medium;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
+  font-family: $body-font;
+}
+
+.btn-calltodelete:hover {
+  background-color: $red;
+  text-decoration: none;
+  color: $white;
+  font-size: 18 px;
+  font-weight: medium;
+  text-align: center;
+  font-family: $body-font;
 }

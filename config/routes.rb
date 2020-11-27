@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :orders, only: :create
   end
 
+  
+
   get '/orders/approved', to: 'orders#approved'
 
   get '/user_profile', to: 'pages#user_profile'
