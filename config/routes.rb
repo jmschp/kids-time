@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :users
   resources :activities do
     resources :orders, only: :create
   end
-
-  
 
   get '/orders/approved', to: 'orders#approved'
 
@@ -13,5 +12,4 @@ Rails.application.routes.draw do
   get '/user_sales', to: 'orders#user_sales'
 
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
