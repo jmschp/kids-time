@@ -1,53 +1,18 @@
-<div class="container mt-4">
-  <h3>Como podemos lhe ajudar hoje?</h3>
-  <div class="d-flex flex-wrap">
-    <div>
-      <p>Escolhe uma categoria</p>
+<div class="index-page-content">
+  <div class="container">
+    <h3>Como podemos lhe ajudar hoje?</h3>
+    <p>Escolhe uma categoria</p>
+    <div class="d-flex justify-content-between my-4">
+      <% Activity::ACTIVITY_CATEGORIES.each do |category| %>
+        <%= link_to("#{category}", activities_path(category: "#{category}"), class: "btn-category") %>
+      <% end %>
     </div>
-    <div style= "margin-left: 10px">
-      <i class="fas fa-hand-point-down text-primary"></i>
+    <div class="d-flex justify-content-between flex-wrap">
+      <% @activities.each do |activity| %>
+        <%= link_to(activity_path(activity)) do %>
+          <%= render('shared/card-activity', act_photo: activity.photos.present? ? activity.photos[0].key : false, title: activity.title, category: activity.category, price: activity.price, act_user_photo:  activity.user.photo.present? ? activity.user.photo.key : false) %>
+        <% end %>
+      <% end %>
     </div>
-  </div>
-  <div class="d-flex justify-content-between flex-wrap btns-category">
-    <div>
-      <%= link_to "casa", activities_path(category: 'Casa'), class: 'btn-tag1 display:inline-block hvr-grow' %>
-    </div>
-    <div>
-      <%= link_to "ar livre", activities_path(category: 'Ar livre'), class: 'btn-tag2 display:inline-block hvr-grow' %>
-    </div>
-    <div>
-      <%= link_to "online", activities_path(category: 'Online'), class: 'btn-tag3 hvr-grow' %>
-    </div>
-    <div>
-      <%= link_to "cozinha", activities_path(category: 'Cozinha'), class: 'btn-tag4 hvr-grow' %>
-    </div>
-    <div>
-      <%= link_to "livros", activities_path(category: 'Livros'), class: 'btn-tag5 hvr-grow' %>
-    </div>
-    <div>
-      <%= link_to "aniversário", activities_path(category: 'Aniversário'), class: 'btn-tag6 hvr-grow' %>
-    </div>
-    <div>
-      <%= link_to "com amigos", activities_path(category: 'Com Amigos'), class: 'btn-tag7 hvr-grow' %>
-    </div>
-    <div>
-      <%= link_to "+ muito mais!", activities_path(category: 'Outros'), class: 'btn-tag9 hvr-grow' %>
-    </div>
-  </div>
-  <h3 style="margin-top: 20px;">Sugestões para você</h3>
-  <div class="d-flex flex-wrap">
-    <div>
-      <p>Melhores atividades selecionadas para você!</p>
-    </div>
-    <div style= "margin-left: 10px">
-      <i class="fas fa-award text-info"></i>
-    </div>
-  </div>
-  <div class="d-flex justify-content-between flex-wrap">
-    <% @activities.each do |activity| %>
-      <%= link_to(activity_path(activity)) do %>
-        <%= render('shared/card-activity', act_photo: activity.photos.present? ? activity.photos[0].key : false, title: activity.title, category: activity.category, price: activity.price, act_user_photo:  activity.user.photo.present? ? activity.user.photo.key : false) %>
-       <% end %>
-    <% end %>
   </div>
 </div>

@@ -2,7 +2,7 @@
   background-color: $blue;
   padding: 10px 25px;
   color: $white;
-  border-radius: 5px;
+  border-radius: 20px;
   transition: background 0.3s ease;
   &:hover {
     background-color: $yellow;
@@ -12,10 +12,11 @@
 }
 
 .btn-category {
+  display: inline-block;
   background-color: $yellow;
   color: $gray;
   padding: 10px 25px;
-  border-radius: 5px;
+  border-radius: 20px;
   box-shadow: 2px 2px 10px $gray;
   transition: background 0.3s ease;
   &:hover {
