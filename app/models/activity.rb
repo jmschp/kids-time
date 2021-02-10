@@ -1,8 +1,8 @@
 # product_type
 #   true  ---> activity
 #   false ---> product
-ACTIVITY_CATEGORIES = ["Aniversário", "Ar livre", "Desporto", "Cozinha", "Livros", "Online", "Outros"]
 class Activity < ApplicationRecord
+  ACTIVITY_CATEGORIES = ["Aniversário", "Ar livre", "Desporto", "Cozinha", "Livros", "Online", "Outros"]
   belongs_to :user
   has_many :orders
   has_many_attached :photos

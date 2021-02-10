@@ -1,0 +1,26 @@
+.btn-home-banner {
+  background-color: $blue;
+  padding: 10px 25px;
+  color: $white;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  &:hover {
+    background-color: $yellow;
+    color: $gray;
+    text-decoration: none;
+  }
+}
+
+.btn-category {
+  background-color: $yellow;
+  color: $gray;
+  padding: 10px 25px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px $gray;
+  transition: background 0.3s ease;
+  &:hover {
+    background-color: $green;
+    color: $white;
+    text-decoration: none;
+  }
+}
