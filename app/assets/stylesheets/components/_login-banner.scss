@@ -1,0 +1,19 @@
+.login-banner {
+    background-color: $yellow;
+    height: 100%;
+    padding: 30px;
+}
+.login-banner-icons {
+  color: $purple;
+}
+
+.login-link-active {
+  border-bottom: 1px solid $yellow;
+  width: 50%;
+}
+
+.login-link-inactive {
+  border-bottom: 1px solid $light-gray;
+  width: 50%;
+  text-align: right;
+}
