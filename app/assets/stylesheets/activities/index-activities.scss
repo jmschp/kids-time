@@ -1,4 +1,52 @@
 .index-page-content {
   flex: 1 0 auto;
-  background-color: $white;
+  // height: calc(100vh - 80px);
+  // background-color: $white;
+  display: grid;
+  grid-template-rows: 65px 60px 2fr;
+  grid-template-areas:
+    "title"
+    "category"
+    "content";
+}
+
+.title {
+  padding: 0px 20px;
+  background-color: blue;
+  h3 {
+    margin: 0px;
+  }
+  p {
+    margin: 0px;
+  }
+}
+
+
+.category {
+  background-color: cadetblue;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.content {
+  padding: 0px 10px;
+  display: flex;
+  margin-bottom: 10px; 
+  // grid-template-columns: 75% 25%;
+  // grid-template-areas: "card card card card map map";
+}
+
+.cards {
+  // flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
