@@ -10,13 +10,11 @@
       </div>
     <% end %>
   </div>
-  <div class="content">
-    <div class="cards">
-      <% @activities.each do |activity| %>
-        <%= render('shared/card-activity', act_photos: activity.photos.present? ? activity.photos : false, title: activity.title, category: activity.category, price: activity.price, act_user_photo:  activity.user.photo.present? ? activity.user.photo.key : false) %>
-      <% end %>
-    </div>
-    <div class="map">
-    </div>
+  <div class="cards">
+    <% @activities.each do |activity| %>
+      <%= render('shared/card-activity', act_photos: activity.photos.present? ? activity.photos : false, title: activity.title, category: activity.category, price: activity.price, act_user_photo:  activity.user.photo.present? ? activity.user.photo.key : false) %>
+    <% end %>
+  </div>
+  <div id="map">
   </div>
 </div>

@@ -1,18 +1,18 @@
 .index-page-content {
   flex: 1 0 auto;
-  // height: calc(100vh - 80px);
-  // background-color: $white;
+  background-color: $white;
   display: grid;
-  grid-template-rows: 65px 60px 2fr;
+  grid-template-rows: 65px 60px 1fr;
+  grid-template-columns: 1fr 400px;
   grid-template-areas:
-    "title"
-    "category"
-    "content";
+    "title title"
+    "category category"
+    "cards map";
 }
 
 .title {
-  padding: 0px 20px;
-  background-color: blue;
+  grid-area: title;
+  padding: 10px;
   h3 {
     margin: 0px;
   }
@@ -21,31 +21,26 @@
   }
 }
 
-
 .category {
-  background-color: cadetblue;
+  grid-area: category;
   display: flex;
   justify-content: space-around;
   align-content: center;
   flex-wrap: wrap;
 }
 
-.content {
-  padding: 0px 10px;
-  display: flex;
-  margin-bottom: 10px; 
-  // grid-template-columns: 75% 25%;
-  // grid-template-areas: "card card card card map map";
-}
-
 .cards {
-  // flex-grow: 1;
+  padding: 10px;
+  grid-area: cards;
+  flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 }
 
-.map {
+#map {
+  padding: 10px 0px;
+  grid-area: map;
   height: 100vh;
   position: sticky;
   top: 0;
