@@ -1,0 +1,31 @@
+.login-page-content {
+  background-color: $white;
+  flex: 1 0 auto;
+}
+
+.login-form-layout {
+  background-color: $white;
+  margin-bottom: 10vh;
+}
+
+.sing-in-link-active {
+  border-bottom: 1px solid $yellow;
+  width: 50%;
+}
+
+.sign-up-link-inactive {
+  border-bottom: 1px solid $light-gray;
+  width: 50%;
+  text-align: right;
+}
+
+.sing-in-link-inactive {
+  border-bottom: 1px solid $light-gray;
+  width: 50%;
+}
+
+.sign-up-link-active {
+  border-bottom: 1px solid $yellow;
+  width: 50%;
+  text-align: right;
+}

@@ -4,21 +4,21 @@
     <title>KidsTime - Ideias criativas para momentos especiais recomendadas por outros pais</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
   <body>
-      <!-- code a navbar -->
+    <!-- Navbar -->
+    <header>
       <%= render('shared/navbar') %>
       <%= render('shared/flashes') %>
-      
-      <%= yield %>
-
-      <!-- code a footer -->
+    </header>
+    <!-- Page content -->
+    <%= yield %>
+    <!-- Footer -->
+    <footer>
       <%= render('shared/footer') %>
+    </footer>
   </body>
 </html>

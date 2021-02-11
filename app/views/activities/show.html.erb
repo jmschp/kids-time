@@ -16,8 +16,8 @@
   </div>
  </div>
   <div class="d-flex">
-    <% if @activity.photo.present? %>
-    <%= cl_image_tag(@activity.photo.key, class: "main-pic") %>
+    <% if @activity.photos.present? %>
+    <%= cl_image_tag(@activity.photos[0].key, class: "main-pic") %>
     <% end %>
   </div>
   <div>

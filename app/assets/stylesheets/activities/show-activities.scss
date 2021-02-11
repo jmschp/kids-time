@@ -1,0 +1,51 @@
+// .fa-star {
+//     color: $yellow;
+// }
+
+.stars-show {
+    color: $yellow;
+}
+
+.main-pic {
+    width: 100%;
+}
+
+
+.btn-cat5 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: white;
+  font-weight: medium;
+  background-color: $yellow;
+  text-decoration: none;
+  text-align: center;
+  font-family: $body-font;
+}
+
+.btn-cat5:hover {
+  background-color: $yellow;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-family: $body-font;
+}
+
+
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(2.1);
+}

@@ -1,6 +1,10 @@
-<div class="card-trip mb-4">
-  <% if act_photo %>
-    <%= cl_image_tag(act_photo)%>
+<div class="card-trip">
+  <% if act_photos %>
+    <div class='cardActivityCarousel'>
+      <% act_photos.each do |act_photo| %>
+        <%= cl_image_tag(act_photo.key, :width=>300, :height=>250, :gravity=>"faces", :crop=>"fill")%>
+      <% end %>
+    </div>
   <% else %>
     <%= image_tag('placeholder.png') %>
   <% end %>
@@ -9,7 +13,7 @@
       <h2><%= title %></h2>
       <p><%= category %></p>
     </div>
-    <h2 class="card-trip-pricing">R$ <%= price %></h2>
+    <h2 class="card-trip-pricing"><%= number_to_currency(price, unit: "R$ ", separator: ",", delimiter: "") %></h2>
     <% if act_user_photo %>
       <%= cl_image_tag(act_user_photo, class: "card-trip-user avatar-bordered") %>
     <% else %>
