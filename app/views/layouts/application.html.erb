@@ -10,13 +10,15 @@
   </head>
   <body>
     <!-- Navbar -->
-    <%= render('shared/navbar') %>
-    <%= render('shared/flashes') %>
-    
+    <header>
+      <%= render('shared/navbar') %>
+      <%= render('shared/flashes') %>
+    </header>
     <!-- Page content -->
-      <%= yield %>
-      
+    <%= yield %>
     <!-- Footer -->
-    <%= render('shared/footer') %>
+    <footer>
+      <%= render('shared/footer') %>
+    </footer>
   </body>
 </html>

@@ -1,12 +1,14 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(<%= image_url('spikeball.jpg')%>)">
-  <div class="container">
-    <h1>Kids Time seja <strong>criativo</strong> na <strong>educação do seus filhos</strong>!</h1>
-    <p>Encontre ideias diferentes e para produtos e serviços recomendados por outros pais e viva momentos especiais com seus filhos!</p>
-    <%= link_to("Descubra atividades agora", activities_path, class: "btn-home-banner") %>
+<main class="home-page-content">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(<%= image_url('spikeball.jpg')%>)">
+    <div class="container">
+      <h1>Kids Time seja <strong>criativo</strong> na <strong>educação do seus filhos</strong>!</h1>
+      <p>Encontre ideias diferentes e para produtos e serviços recomendados por outros pais e viva momentos especiais com seus filhos!</p>
+      <%= link_to("Descubra atividades agora", activities_path, class: "btn-home-banner") %>
+    </div>
+    <div class="btn-categories-box">
+      <% Activity::ACTIVITY_CATEGORIES.each do |category| %>
+        <%= link_to("#{category}", activities_path(category: "#{category}"), class: "btn-category") %>
+      <% end %>
+    </div>
   </div>
-  <div class="btn-categories-box">
-    <% Activity::ACTIVITY_CATEGORIES.each do |category| %>
-      <%= link_to("#{category}", activities_path(category: "#{category}"), class: "btn-category") %>
-    <% end %>
-  </div>
-</div>
+</main>
