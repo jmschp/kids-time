@@ -7,8 +7,8 @@ function mapbox(elementId) {
     const map = new mapboxgl.Map({
       container: "map", // container ID
       style: "mapbox://styles/mapbox/streets-v11", // style URL
-      center: [-26, 45], // starting position [lng, lat]
-      zoom: 9, // starting zoom,
+      center: [-23, 46], // starting position [lng, lat]
+      zoom: 1, // starting zoom,
       attributionControl: false,
     });
     addMarkers(mapElement, map);
@@ -22,7 +22,7 @@ function addMarkers(mapElement, map) {
     markers.forEach((marker) => {
       const markers = new mapboxgl.Marker().setLngLat([marker.lng, marker.lat]).addTo(map);
       bounds.extend([marker.lng, marker.lat]);
-      map.fitBounds(bounds, { padding: 100 });
+      map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 0 });
     });
   }
 }
