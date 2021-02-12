@@ -1,6 +1,6 @@
 <div class="card-trip">
   <% if act_photos %>
-    <div class='cardActivityCarousel'>
+    <div class='cardActivityCarousel images-carousel'>
       <% act_photos.each do |act_photo| %>
         <%= cl_image_tag(act_photo.key, :width=>300, :height=>250, :gravity=>"faces", :crop=>"fill")%>
       <% end %>
