@@ -5,10 +5,6 @@
       <p>Encontre ideias diferentes e para produtos e serviços recomendados por outros pais e viva momentos especiais com seus filhos!</p>
       <%= link_to("Descubra atividades agora", activities_path, class: "btn-home-banner") %>
     </div>
-    <div class="btn-categories-box">
-      <% Activity::ACTIVITY_CATEGORIES.each do |category| %>
-        <%= link_to("#{category}", activities_path(category: "#{category}"), class: "btn-category") %>
-      <% end %>
-    </div>
+    
   </div>
 </main>
