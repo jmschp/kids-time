@@ -1,14 +1,20 @@
 <div class="index-page-content">
   <div class="title">
-    <h3>Como podemos lhe ajudar hoje?</h3>
-    <p>Escolhe uma categoria</p>
+    <%# <h3>Como podemos lhe ajudar hoje?</h3>
+    <p>Escolhe uma categoria</p> %>
   </div>
   <div class="category">
-    <% Activity::ACTIVITY_CATEGORIES.each do |category| %>
-      <div>
-        <%= link_to("#{category}", activities_path(category: "#{category}"), class: "btn-category") %>
+    <div class="dropdown">
+      <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categorias
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <%= link_to("Todas", activities_path, class: "dropdown-item") %>
+        <% Activity::ACTIVITY_CATEGORIES.each do |category| %>
+          <%= link_to("#{category}", activities_path(category: "#{category}"), class: "dropdown-item") %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
   <div class="cards">
     <% @activities.each do |activity| %>
