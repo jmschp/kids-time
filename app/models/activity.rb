@@ -13,4 +13,6 @@ class Activity < ApplicationRecord
   validates :min_age, presence: true, length: { maximum: 2 }
   validates :price, length: { maximum: 10 }
   validates :product_type, presence: true
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
