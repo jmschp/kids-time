@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
       @activities = Activity.where(min_age: min_age)
     else
       @activities = Activity.all
+      @map_markers = @activities.geocoded.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
     end
   end
 
