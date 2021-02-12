@@ -11,8 +11,8 @@ class ActivitiesController < ApplicationController
       @activities = Activity.where(min_age: min_age)
     else
       @activities = Activity.all
-      @map_markers = @activities.geocoded.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
     end
+    activities_lat_lng(@activities)
   end
 
   def show
@@ -63,5 +63,9 @@ class ActivitiesController < ApplicationController
 
   def activity_params
     params.require(:activity).permit(:title, :description, :category, :duration, :min_age, :price, :photo)
+  end
+
+  def activities_lat_lng(activities)
+    @map_markers = activities.geocoded.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
   end
 end
