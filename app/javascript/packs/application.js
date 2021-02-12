@@ -32,5 +32,5 @@ import { mapbox } from "../components/mapbox";
 
 document.addEventListener('turbolinks:load', () => {
   imageCarousel(".cardActivityCarousel");
-  mapbox(process.env.MAPBOX_TOKEN);
+  mapbox('map');
 });
