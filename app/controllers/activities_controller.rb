@@ -17,6 +17,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @order = Order.new
+    activities_lat_lng(@activity)
   end
 
   def new
@@ -66,6 +67,7 @@ class ActivitiesController < ApplicationController
   end
 
   def activities_lat_lng(activities)
-    @map_markers = activities.geocoded.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
+    activities = [activities] if activities.is_a?(Activity)
+    @map_markers = activities.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
   end
 end

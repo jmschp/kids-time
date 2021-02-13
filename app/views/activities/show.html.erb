@@ -24,6 +24,6 @@
       <%= f.submit %>
     <% end %>
   </div>
-  <div id="map-show">
+  <div id="map-show" data-markers="<%= @map_markers.to_json %>">
   </div>
 </main>
