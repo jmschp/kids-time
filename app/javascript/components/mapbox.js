@@ -5,7 +5,7 @@ function mapbox(elementId) {
   if (mapElement) {
     mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
     const map = new mapboxgl.Map({
-      container: "map", // container ID
+      container: elementId, // container ID
       style: "mapbox://styles/mapbox/streets-v11", // style URL
       center: [-23, 46], // starting position [lng, lat]
       zoom: 1, // starting zoom,

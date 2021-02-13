@@ -1,7 +1,29 @@
 <main class="container show-page-content">
-  <div class="images-carousel">
+  <div class="images images-carousel">
     <% @activity.photos.each do |photo| %>
-      <%= cl_image_tag(photo.key, :height=>400)%>
+      <%= cl_image_tag(photo.key, height: 400, gravity: "faces", crop: "fill")%>
     <% end %>
+  </div>
+  <div class="act-title">
+    <h1><%= @activity.title %> <%= render('shared/category-badge', category: @activity.category) %></h1>
+  </div>
+  <div class="content">
+    <p><%= @activity.description %></p>
+    <span>
+      <h6>Experiência oferecida por <strong><%= @activity.user.name %></strong></h6>
+      <%= cl_image_tag(@activity.user.photo.key, class: "card-trip-user avatar-bordered") %>
+    </span>
+    <div class="act-specs">
+      <span><i class="fas fa-clock"></i> <%= @activity.duration %></span>
+      <span><i class="fas fa-child"></i> <%= @activity.min_age %> anos</span>
+    </div>
+  </div>
+  <div class="booking">
+    <p><strong><%= number_to_currency(@activity.price, unit: "R$ ", separator: ",", delimiter: "") %></strong></p>
+    <%= simple_form_for([@activity, @order]) do |f| %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <div id="map-show">
   </div>
 </main>

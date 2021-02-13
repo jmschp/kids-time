@@ -1,6 +1,6 @@
 .index-page-content {
   flex: 1 0 auto;
-  background-color: $white;
+  // background-color: $white;
   display: grid;
   grid-template-rows: 100px 60px 1fr;
   grid-template-columns: 1fr 400px;
@@ -39,7 +39,7 @@
   grid-gap: 10px;
 }
 
-#map {
+#map-index {
   padding: 10px 0px;
   grid-area: map;
   height: 100vh;
