@@ -11,7 +11,7 @@
   <div class="card-trip-infos">
     <div>
       <h2><%= title %></h2>
-      <p><%= category %></p>
+      <%= render("shared/category-badge", category: category) %>
     </div>
     <h2 class="card-trip-pricing"><%= number_to_currency(price, unit: "R$ ", separator: ",", delimiter: "") %></h2>
     <% if act_user_photo %>
