@@ -18,7 +18,7 @@
   </div>
   <div class="cards">
     <% @activities.each do |activity| %>
-      <%= render('shared/card-activity', act_photos: activity.photos.present? ? activity.photos : false, title: activity.title, category: activity.category, price: activity.price, act_user_photo:  activity.user.photo.present? ? activity.user.photo.key : false) %>
+      <%= render('shared/card-activity', activity: activity) %>
     <% end %>
   </div>
   <div id="map" class="map-index" data-markers="<%= @map_markers.to_json %>">
