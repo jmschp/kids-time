@@ -6,6 +6,12 @@
   </div>
   <div class="act-title">
     <h1><%= @activity.title %> <%= render('shared/category-badge', category: @activity.category) %></h1>
+    <div>
+      <i class="fas fa-edit"></i>
+      <%= link_to(activity_path(@activity), method: :delete, data: {confirm: "Atividade será apagada, têm certeza"}) do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </div>
   </div>
   <div class="content">
     <p><%= @activity.description %></p>
@@ -14,7 +20,9 @@
       <%= cl_image_tag(@activity.user.photo.key, class: "card-trip-user avatar-bordered") %>
     </span>
     <div class="act-specs">
-      <span><i class="fas fa-clock"></i> <%= @activity.duration %></span>
+      <% if @activity.duration.present? %>
+        <span><i class="fas fa-clock"></i> <%= @activity.duration %></span>
+      <% end %>
       <span><i class="fas fa-child"></i> <%= @activity.min_age %>+ anos</span>
     </div>
   </div>

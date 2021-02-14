@@ -48,12 +48,12 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    if current_user == @activity.user
+    # if current_user == @activity.user
       @activity.destroy
-      redirect_to user_profile_path
-    else
-      redirect_to root_path, alert: "You are not allowed to delete this activity"
-    end
+      redirect_to activities_path
+    # else
+      # redirect_to root_path, alert: "You are not allowed to delete this activity"
+    # end
   end
 
   private

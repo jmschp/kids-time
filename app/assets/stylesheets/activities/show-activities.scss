@@ -22,6 +22,18 @@
 
 .act-title {
   grid-area: title;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  i {
+    font-size: 1.2rem;
+  }
+  .fa-edit {
+    color: $purple;
+  }
+  .fa-trash {
+    color: $red;
+  }
 }
 
 .content {
