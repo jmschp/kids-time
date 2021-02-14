@@ -48,8 +48,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-      @activity.destroy
-      redirect_to activities_path
+    @activity.destroy
+    redirect_to activities_path
   end
 
   private
