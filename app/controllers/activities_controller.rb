@@ -3,12 +3,9 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy]
 
   def index
-    min_age = params[:min_age]
     category = params[:category]
     if category.present?
       @activities = Activity.where(category: category)
-    elsif min_age.present?
-      @activities = Activity.where(min_age: min_age)
     else
       @activities = Activity.all
     end
@@ -64,6 +61,6 @@ class ActivitiesController < ApplicationController
 
   def activities_lat_lng(activities)
     activities = [activities] if activities.is_a?(Activity)
-    @map_markers = activities.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
+    @map_markers = activities.geocoded.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
   end
 end
