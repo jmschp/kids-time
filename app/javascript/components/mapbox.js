@@ -11,6 +11,7 @@ function mapbox(elementId) {
       zoom: 1, // starting zoom,
       attributionControl: false,
     });
+    map.addControl(new mapboxgl.NavigationControl({ visualizePitch: true }));
     addMarkers(mapElement, map);
   }
 }
@@ -22,8 +23,10 @@ function addMarkers(mapElement, map) {
     markers.forEach((marker) => {
       const markers = new mapboxgl.Marker().setLngLat([marker.lng, marker.lat]).addTo(map);
       bounds.extend([marker.lng, marker.lat]);
-      map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 0 });
     });
+    map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 0 });
+    console.log(markers);
+    console.log(map.getCenter());
   }
 }
 
