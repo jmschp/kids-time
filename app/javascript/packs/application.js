@@ -33,6 +33,5 @@ import { mapbox } from "../components/mapbox";
 document.addEventListener('turbolinks:load', () => {
   // imageCarousel(".cardActivityCarousel");
   imageCarousel(".images-carousel");
-  mapbox("map-index");
-  mapbox("map-show");
+  mapbox("map");
 });

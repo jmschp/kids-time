@@ -25,8 +25,6 @@ function addMarkers(mapElement, map) {
       bounds.extend([marker.lng, marker.lat]);
     });
     map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 0 });
-    console.log(markers);
-    console.log(map.getCenter());
   }
 }
 
