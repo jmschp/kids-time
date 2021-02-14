@@ -11,18 +11,21 @@ activities = [
     title: 'Campeonato de futebol',
     description: 'Venha jogar futebol no parque Vila Lobos com seus melhores amigos! Aqui com certeza vai sempre dar time. Não permita que ninguém roube os seus sonhos, só você pode correr atrás e realizá-los. Não perca a sua essência, acredite na magia da infância e continue vivendo em harmonia. Você tem a vida inteira pela frente, aproveite cada momento como se fosse o último!',
     category: Activity::ACTIVITY_CATEGORIES.sample, duration: "8 horas", min_age: 12, price: 550.25,
+    address: "Rua Afonso Braz 505 São Paulo",
     photo_url: ['https://source.unsplash.com/JJTymoqqNIQ', 'https://source.unsplash.com/c8moHj5YdFU', 'https://source.unsplash.com/sZhLJ6GydQA']
   },
   {
     title: 'Kart racing',
     description: 'Você poderá se sentir um verdadeiro piloto participando de uma bateria em nossos karts com motores Honda de 5 hp. Kart Mirim acoplado com motor Honda GX 160, banco regulável e proteção radial de polipropileno para os pequenos amantes do esporte.',
     category: Activity::ACTIVITY_CATEGORIES.sample, duration: "25 minutos", min_age: 14, price: 150.60,
+    address: "Rua Augusta 2099",
     photo_url: ['https://source.unsplash.com/u79XgGhg0Ww', 'https://source.unsplash.com/DXFJf4L7VeA', 'https://source.unsplash.com/jyGqc7NKucQ']
   },
   {
     title: 'Picnic no parque',
     description: 'Junte a familia e amigos, para aproveitar um picnic com as melhores guloseimas, com uma bela vista da praça Por do Sol. Saiba aproveitar cada instante da sua vida, você pode realizar todos os seus sonhos se correr atrás. Não perca a sua essência e viva em busca da sua paz. Faça a diferença no mundo e não perca a magia da infância que vive em seu coração',
     category: Activity::ACTIVITY_CATEGORIES.sample, duration: "6 horas", min_age: 5, price: 155.20,
+    address: "Rua Tuiucuê 74 São Paulo",
     photo_url: ['https://source.unsplash.com/VgItkeIq6Ek', 'https://source.unsplash.com/-7AxXbZekDE', 'https://source.unsplash.com/rKD8P8aY_1M']
   }
 ]
