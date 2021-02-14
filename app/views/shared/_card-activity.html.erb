@@ -12,10 +12,12 @@
     <div>
       <h2><%= link_to(activity.title, activity_path(activity)) %></h2>
       <%= render("shared/category-badge", category: activity.category) %>
-      <div>
-        <i class="fas fa-edit"></i>
-        <i class="fas fa-trash-alt"></i>
-      </div>
+      <p>
+        <% if activity.duration.present? %>
+          <i class="fas fa-clock"></i> <%= activity.duration %>
+        <% end %>
+        <i class="fas fa-child"></i> <%= activity.min_age %>+ anos
+      </p>
     </div>
     <h2 class="card-trip-pricing"><%= number_to_currency(activity.price, unit: "R$ ", separator: ",", delimiter: "") %></h2>
     <% if activity.user.photo.present? %>
