@@ -10,7 +10,7 @@
   <% end %>
   <div class="card-trip-infos">
     <div>
-      <h2><%= activity.title %></h2>
+      <h2><%= link_to(activity.title, activity_path(activity)) %></h2>
       <%= render("shared/category-badge", category: activity.category) %>
       <div>
         <i class="fas fa-edit"></i>
