@@ -60,7 +60,11 @@ class ActivitiesController < ApplicationController
   end
 
   def activities_lat_lng(activities)
-    activities = [activities] if activities.is_a?(Activity)
-    @map_markers = activities.geocoded.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
+    if !activities.is_a?(Activity)
+      @map_markers = activities.geocoded.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
+    elsif activities.latitude.present? && activities.longitude.present?
+      activities = [activities]
+      @map_markers = activities.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
+    end
   end
 end
