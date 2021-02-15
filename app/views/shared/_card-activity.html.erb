@@ -1,8 +1,8 @@
 <div class="card-trip">
-  <% if act_photos %>
-    <div class='cardActivityCarousel'>
-      <% act_photos.each do |act_photo| %>
-        <%= cl_image_tag(act_photo.key, :width=>300, :height=>250, :gravity=>"faces", :crop=>"fill")%>
+  <% if activity.photos.present? %>
+    <div class='cardActivityCarousel images-carousel'>
+      <% activity.photos.each do |photo| %>
+        <%= cl_image_tag(photo.key, :width=>300, :height=>250, :gravity=>"faces", :crop=>"fill")%>
       <% end %>
     </div>
   <% else %>
@@ -10,12 +10,18 @@
   <% end %>
   <div class="card-trip-infos">
     <div>
-      <h2><%= title %></h2>
-      <p><%= category %></p>
+      <h2><%= link_to(activity.title, activity_path(activity)) %></h2>
+      <%= render("shared/category-badge", category: activity.category) %>
+      <p>
+        <% if activity.duration.present? %>
+          <i class="fas fa-clock"></i> <%= activity.duration %>
+        <% end %>
+        <i class="fas fa-child"></i> <%= activity.min_age %>+ anos
+      </p>
     </div>
-    <h2 class="card-trip-pricing"><%= number_to_currency(price, unit: "R$ ", separator: ",", delimiter: "") %></h2>
-    <% if act_user_photo %>
-      <%= cl_image_tag(act_user_photo, class: "card-trip-user avatar-bordered") %>
+    <h2 class="card-trip-pricing"><%= number_to_currency(activity.price, unit: "R$ ", separator: ",", delimiter: "") %></h2>
+    <% if activity.user.photo.present? %>
+      <%= cl_image_tag(activity.user.photo.key, class: "card-trip-user avatar-bordered") %>
     <% else %>
       <%= image_tag('avatar.png', class: "card-trip-user avatar-bordered") %>
     <% end %>

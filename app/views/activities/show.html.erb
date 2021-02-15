@@ -1,39 +1,37 @@
-<div class="container mt-4">
-  <div class="row">
-  <div class="col d-flex justify-content-between align-items-center">
-    <div>
-      <h1><%= @activity.title %></h1>
-      <% 5.times do %>
-        <i class="fas fa-star show-stars"></i>
-      <% end %>
-    </div>
-    <div class="d-flex">
-     <% if @activity.user == current_user %>
-      <%= link_to("Editar", edit_activity_path(@activity), class: "btn-calltoaction mx-3") %>
-      <%= link_to("Apagar", activity_path(@activity), class: "btn-calltodelete", method: :delete, data: {confirm: "Tem certeza?"}) %>
-     <% end %>
-    </div>
-  </div>
- </div>
-  <div class="d-flex">
-    <% if @activity.photos.present? %>
-    <%= cl_image_tag(@activity.photos[0].key, class: "main-pic") %>
+<main class="container show-page-content">
+  <div class="images images-carousel">
+    <% @activity.photos.each do |photo| %>
+      <%= cl_image_tag(photo.key, height: 400, gravity: "faces", crop: "fill")%>
     <% end %>
   </div>
-  <div>
-    <%= link_to("#{@activity.min_age} anos +", activities_path(min_age: @activity.min_age), class: "btn btn-cat4") %>
-    <%= link_to(@activity.category, activities_path(category: @activity.category), class: "btn btn-cat5") %>
+  <div class="act-title">
+    <h1><%= @activity.title %> <%= render('shared/category-badge', category: @activity.category) %></h1>
+    <div>
+      <i class="fas fa-edit"></i>
+      <%= link_to(activity_path(@activity), method: :delete, data: {confirm: "Atividade será apagada, têm certeza"}) do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </div>
   </div>
-  <h4>Descrição</h4>
-  <%= @activity.description %>
-  <hr>
-  <h4>Duração</h4>
-  <%= @activity.duration %>
-  <hr>
-  <h4>Preço</h4>
-  <%= @activity.price%>
-  <hr>
-  <%= simple_form_for([@activity, @order]) do |f| %>
-    <%= f.submit class: "btn-calltoaction" %>
-  <% end %>
-</div>
+  <div class="content">
+    <p><%= @activity.description %></p>
+    <span>
+      <h6>Experiência oferecida por <strong><%= @activity.user.name %></strong></h6>
+      <%= cl_image_tag(@activity.user.photo.key, class: "card-trip-user avatar-bordered") %>
+    </span>
+    <div class="act-specs">
+      <% if @activity.duration.present? %>
+        <span><i class="fas fa-clock"></i> <%= @activity.duration %></span>
+      <% end %>
+      <span><i class="fas fa-child"></i> <%= @activity.min_age %>+ anos</span>
+    </div>
+  </div>
+  <div class="booking">
+    <p><strong><%= number_to_currency(@activity.price, unit: "R$ ", separator: ",", delimiter: "") %></strong></p>
+    <%= simple_form_for([@activity, @order]) do |f| %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <div id="map" class="map-show" data-markers="<%= @map_markers.to_json %>">
+  </div>
+</main>

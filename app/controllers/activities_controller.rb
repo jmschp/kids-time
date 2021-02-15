@@ -3,12 +3,9 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy]
 
   def index
-    min_age = params[:min_age]
     category = params[:category]
     if category.present?
       @activities = Activity.where(category: category)
-    elsif min_age.present?
-      @activities = Activity.where(min_age: min_age)
     else
       @activities = Activity.all
     end
@@ -17,6 +14,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @order = Order.new
+    activities_lat_lng(@activity)
   end
 
   def new
@@ -47,12 +45,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    if current_user == @activity.user
-      @activity.destroy
-      redirect_to user_profile_path
-    else
-      redirect_to root_path, alert: "You are not allowed to delete this activity"
-    end
+    @activity.destroy
+    redirect_to activities_path
   end
 
   private
@@ -66,6 +60,11 @@ class ActivitiesController < ApplicationController
   end
 
   def activities_lat_lng(activities)
-    @map_markers = activities.geocoded.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
+    if !activities.is_a?(Activity)
+      @map_markers = activities.geocoded.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
+    elsif activities.latitude.present? && activities.longitude.present?
+      activities = [activities]
+      @map_markers = activities.map { |activity| { lat: activity.latitude, lng: activity.longitude } }
+    end
   end
 end

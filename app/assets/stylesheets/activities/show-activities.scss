@@ -1,51 +1,64 @@
-// .fa-star {
-//     color: $yellow;
-// }
-
-.stars-show {
-    color: $yellow;
+.show-page-content {
+  flex: 1 0 auto;
+  // background-color: $white;
+  display: grid;
+  grid-template-rows: 400px 0.2fr 1fr 200px;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  grid-template-areas:
+    "images images"
+    "title title"
+    "content booking"
+    "map map";
 }
 
-.main-pic {
-    width: 100%;
+.images {
+  grid-area: images;
+  img {
+    margin: auto;
+    display: block;
+  }
 }
 
-
-.btn-cat5 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 8px 16px;
-  border-radius: 50px;
-  color: white;
-  font-weight: medium;
-  background-color: $yellow;
-  text-decoration: none;
-  text-align: center;
-  font-family: $body-font;
+.act-title {
+  grid-area: title;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  i {
+    font-size: 1.2rem;
+  }
+  .fa-edit {
+    color: $purple;
+  }
+  .fa-trash {
+    color: $red;
+  }
 }
 
-.btn-cat5:hover {
-  background-color: $yellow;
-  text-decoration: none;
-  text-align: center;
-  color: white;
-  font-family: $body-font;
+.content {
+  grid-area: content;
+  p {
+    text-align: justify;
+  }
+  h6 {
+    display: inline;
+    margin: 0 0.5rem 0 0;
+  }
+}
+.act-specs {
+  display: flex;
+  flex-wrap: wrap;
+  span {
+    margin: 0 1.5rem 0 0;
+  }
 }
 
-
-.hvr-grow {
-    display: inline-block;
-    vertical-align: middle;
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    transition-duration: 0.3s;
-    transition-property: transform;
+.booking {
+  grid-area: booking;
+  text-align: right;
 }
 
-.hvr-grow:hover,
-.hvr-grow:focus,
-.hvr-grow:active {
-    transform: scale(2.1);
+.map-show {
+  grid-area: map;
 }
